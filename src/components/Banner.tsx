@@ -14,10 +14,9 @@ const Banner: FC<BannerProps> = ({}) => {
             OnlineStore
           </h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam{" "}
+            Get all the products that you want
             <br />
-            accusantium perspiciatis, sapiente magni eos dolorum ex quos dolores
-            odio
+            easily in one place.
           </p>
         </div>
       </div>
