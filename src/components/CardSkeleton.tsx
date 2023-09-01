@@ -20,11 +20,11 @@ const CardSkeleton: FC<CardSkeletonProps> = ({}) => {
           </h5>
         </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
-          <p>
-            <span className="text-3xl font-bold text-black">
+          <div>
+            <div className="text-3xl font-bold text-black">
               <Skeleton className="w-32 h-8" />
-            </span>
-          </p>
+            </div>
+          </div>
         </div>
         <div className="flex items-center justify-between">
           <Skeleton className="w-32 h-10" />
