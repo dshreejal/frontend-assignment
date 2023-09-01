@@ -13,6 +13,7 @@ import { VscLoading } from "react-icons/vsc";
 const fetchdata = async (id: number): Promise<ProductsProps> => {
   const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
+  //promise to slow down the fetching
   await new Promise((resolve) => setTimeout(resolve, 250));
 
   const data: ProductsProps = await res.data;
