@@ -22,6 +22,7 @@ const ProductCategory: FC<ProductCategoryProps> = ({ data, category }) => {
               title={item?.title}
               price={item?.price}
               image={item?.image}
+              category={item?.category}
             />
           ))}
         </div>
