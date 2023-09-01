@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ReduxProvider from "@/providers/ReduxProvider";
 import ToasterProvider from "@/providers/ToastProvider";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,10 @@ export default function RootLayout({
         <ReactQueryProvider>
           <ReduxProvider>
             <ToasterProvider />
-            {children}
+            <div className="flex min-h-screen flex-col items-center ">
+              <Navbar />
+              {children}
+            </div>
           </ReduxProvider>
         </ReactQueryProvider>
       </body>
