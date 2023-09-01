@@ -147,7 +147,15 @@ export default function Page({ params }: { params: { slug: number } }) {
                 </div>
 
                 <Button
-                  onClick={() => handleAdd({ id: data.id, title: data.title })}
+                  onClick={() =>
+                    handleAdd({
+                      id: data.id,
+                      title: data.title,
+                      price: data.price,
+                      image: data.image,
+                      category: data.category,
+                    })
+                  }
                   className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-transparent bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow"
                 >
                   <BiShoppingBag size={20} />
