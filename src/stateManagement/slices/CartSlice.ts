@@ -4,7 +4,10 @@ import { toast } from "react-hot-toast";
 interface CartItem {
   id: number;
   title: string;
-  quantity?: number;
+  quantity: number;
+  price: number;
+  image: string;
+  category: string;
 }
 
 const initialState: CartItem[] = [];
@@ -37,6 +40,7 @@ const cartSlice = createSlice({
       }
     },
     clearCart(state) {
+      toast.success("Order Placed Successfully");
       return [];
     },
   },
