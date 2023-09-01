@@ -24,7 +24,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           <ReduxProvider>
             <ToasterProvider />
-            <div className="flex min-h-screen flex-col items-center ">
+            <div className="flex min-h-screen flex-col  ">
               <Navbar />
               {children}
             </div>
