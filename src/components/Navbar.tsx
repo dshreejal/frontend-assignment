@@ -10,7 +10,7 @@ interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
   return (
-    <header className="text-slate-700 container relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-2xl">
+    <header className="text-slate-700 w-full relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-2xl">
       <Link
         href="/"
         className="flex items-center whitespace-nowrap text-2xl font-black text-primary"
