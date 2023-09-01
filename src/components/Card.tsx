@@ -2,6 +2,9 @@ import React, { FC } from "react";
 import { Button } from "./ui/button";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../stateManagement/slices/CartSlice";
+import { toast } from "react-hot-toast";
 
 interface CardProps {
   id: number;
@@ -11,6 +14,10 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ id, title, price, image }) => {
+  const dispatch = useDispatch();
+  const handleAdd = (data: any) => {
+    dispatch(addToCart(data));
+  };
   return (
     <div className="group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-white shadow-xl m-5">
       <a
@@ -35,7 +42,10 @@ const Card: FC<CardProps> = ({ id, title, price, image }) => {
           </p>
         </div>
         <div className="flex items-center justify-between">
-          <Button className="flex items-center justify-center gap-3 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 ">
+          <Button
+            onClick={() => handleAdd({ id, title })}
+            className="flex items-center justify-center gap-3 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 "
+          >
             <AiOutlineShoppingCart size={20} />
             Add to cart
           </Button>
