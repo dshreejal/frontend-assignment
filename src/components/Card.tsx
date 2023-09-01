@@ -1,14 +1,16 @@
 import React, { FC } from "react";
 import { Button } from "./ui/button";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Link from "next/link";
 
 interface CardProps {
+  id: number;
   title: string;
   price: number;
   image: string;
 }
 
-const Card: FC<CardProps> = ({ title, price, image }) => {
+const Card: FC<CardProps> = ({ id, title, price, image }) => {
   return (
     <div className="group border-gray-100/30 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-white shadow-xl m-5">
       <a
@@ -37,7 +39,9 @@ const Card: FC<CardProps> = ({ title, price, image }) => {
             <AiOutlineShoppingCart size={20} />
             Add to cart
           </Button>
-          <Button variant="link">View</Button>
+          <Button variant="link">
+            <Link href={`/product/${id}`}>View</Link>
+          </Button>
         </div>
       </div>
     </div>
