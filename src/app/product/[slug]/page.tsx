@@ -10,6 +10,9 @@ import { BiWorld, BiCreditCard, BiShoppingBag } from "react-icons/bi";
 import { ProductsProps } from "@/types";
 import { VscLoading } from "react-icons/vsc";
 
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../stateManagement/slices/CartSlice";
+
 const fetchdata = async (id: number): Promise<ProductsProps> => {
   const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
@@ -21,6 +24,11 @@ const fetchdata = async (id: number): Promise<ProductsProps> => {
 };
 
 export default function Page({ params }: { params: { slug: number } }) {
+  const dispatch = useDispatch();
+  const handleAdd = (data: any) => {
+    dispatch(addToCart(data));
+  };
+
   const { data, error, isLoading, isFetched } = useQuery(
     ["product", params.slug],
     () => fetchdata(params.slug)
@@ -138,7 +146,10 @@ export default function Page({ params }: { params: { slug: number } }) {
                   <h1 className="text-3xl font-bold">$ {data?.price}</h1>
                 </div>
 
-                <Button className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-transparent bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow">
+                <Button
+                  onClick={() => handleAdd({ id: data.id, title: data.title })}
+                  className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-transparent bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow"
+                >
                   <BiShoppingBag size={20} />
                   Add to cart
                 </Button>
