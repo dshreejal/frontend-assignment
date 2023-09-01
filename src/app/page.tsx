@@ -21,7 +21,7 @@ const fetchdata = async (category: string) => {
   );
 
   //promise to slow down the fetching
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 50));
 
   const data = await res.data;
   return data;

@@ -9,7 +9,7 @@ const fetchdata = async () => {
   const res = await axios.get(`https://fakestoreapi.com/products`);
 
   //promise to slow down the fetching
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 200));
 
   const data = await res.data;
   return data;
