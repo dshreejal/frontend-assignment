@@ -1,16 +1,22 @@
+"use client";
 import React, { FC } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiStore } from "react-icons/bi";
+import { useSelector } from "react-redux";
 
 import Link from "next/link";
+import { RootState } from "@/stateManagement/store";
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
+  const cart = useSelector((state: RootState) => {
+    return state.cart;
+  });
   return (
-    <header className="text-slate-700 w-full relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-2xl">
+    <header className="text-slate-700 w-full fixed z-50 bg-white mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center shadow-2xl top-0">
       <Link
         href="/"
         className="flex items-center whitespace-nowrap text-2xl font-black text-primary"
@@ -54,7 +60,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             {" "}
             <AiOutlineShoppingCart /> Cart
             <span className="text-white relative bottom-3 bg-primary rounded-lg px-1 py text-sm">
-              0
+              {cart.length}
             </span>
           </Link>
           <Button className="whitespace-nowrap rounded-xl  px-5 py-3 font-medium text-white transition-all duration-200 ">
